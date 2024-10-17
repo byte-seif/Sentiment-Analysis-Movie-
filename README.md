@@ -1,4 +1,4 @@
-# Sentiment-Analysis-Movie-
+# Movie Sentiment-Analysis
 
 # Real-Time Sentiment Analysis App
 
