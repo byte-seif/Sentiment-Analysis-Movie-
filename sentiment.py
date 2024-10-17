@@ -24,11 +24,11 @@ def preprocess_text(text):
 
 # Streamlit UI
 st.markdown(
-    '<h1 style="color: orange;">Data Science and Ai: Mini-Project 3</h1>',
+    '<h1 style="color: orange;">Data Science and AI: Mini-Project 3</h1>',
     unsafe_allow_html=True
 )
 st.write("**Deployed By:** Seif Hussen")
-st.write("**Description of the model deployed:**")
+st.write("**Description of the Model Deployed:**")
 st.write(
     "The deployed model is a **LightGBM** classifier trained on a combination of multiple TF-IDF features, including:\n"
     "- Word-level TF-IDF vectorizer\n"
@@ -37,17 +37,28 @@ st.write(
 )
 st.write("**Model Accuracy:** 87.9%")
 
+# Title for user interaction
 st.title('Real-Time Movie Sentiment Analysis')
+
+# Input for user review
 user_input = st.text_area("Enter your movie review:")
 
 # Button for triggering sentiment analysis
-if st.button('Analyze'):
+if st.button('Predict'):
     if user_input.strip():
         # Preprocess user input
         features = preprocess_text(user_input)
+        
         # Make prediction
         prediction = lgb_model_tfidf.predict(features)
         sentiment = 'Positive' if prediction == 1 else 'Negative'
-        st.write(f"**Sentiment:** {sentiment}")
+        
+        # Display the sentiment
+        st.markdown(f"### **Sentiment:** {sentiment}")
     else:
         st.write("Please enter a valid review.")
+
+# Display the ROC curve image
+st.markdown("### ROC Curve for the LightGBM Model")
+st.image('roc_curve.png', caption='ROC Curve - LightGBM Model', use_column_width=True)
+
