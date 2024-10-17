@@ -24,7 +24,7 @@ def preprocess_text(text):
 
 # Streamlit UI
 st.markdown(
-    '<h1 style="color: orange;">Data Science and AI: Mini-Project 3</h1>',
+    '<h1 style="color: orange;">Data Science and Ai: Mini-Project 3</h1>',
     unsafe_allow_html=True
 )
 st.write("**Deployed By:** Seif Hussen")
